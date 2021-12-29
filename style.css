@@ -1,3 +1,27 @@
 body {
-    font-size: 10px;
+    font-size: 20px;
+}
+
+td,
+th {
+    padding: 10px;
+    padding-right: 15px;
+}
+
+#zoomIn,
+#zoomOut {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#canvas {
+    border: 1px solid black;
+}
+
+#settingsDiv,
+#canvasDiv,
+#entityDiv {
+    padding: 20px;
 }

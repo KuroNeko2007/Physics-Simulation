@@ -12,9 +12,52 @@
 
 <body>
     <!--Page-->
-    <div id="page"></div>
+    <div id="page">
+        <div id="settingsDiv">
+            <table>
+                <tr>
+                    <td><label for="gravConst">Gravitational Constant: </label></td>
+                    <td><input type="number" name="gravConst" id="gravConst" value="1"></td>
+                </tr>
+                <tr>
+                    <td><label for="simSpeed">Simulation Speed: </label></td>
+                    <td><input type="number" name="simSpeed" id="simSpeed" value="10"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="canvasDiv" hidden="true">
+            <canvas id="canvas"></canvas> <br>
+            <label for="zoomIn zoomOut">Zoom: </label>
+            <input type="button" value="+" id="zoomIn" name="zoomIn">
+            <input type="button" value="-" id="zoomOut" name="zoomOut"> <br>
+
+            <input type="button" value="Start" id="startButton" name="startButton">
+        </div>
+
+        <div id="entityDiv" hidden="true">
+            <div id="entityMakerDiv">
+                <label for="newEntityName">Name for the New Entity:</label>
+                <input type="text" name="newEntityName" id="newEntityName">
+                <input type="button" value="Make">
+            </div>
+            <select name="currentSelectedEntityToView" id="currentSelectedEntityToView">
+
+            </select>
+        </div>
+
+        <div id="controlButtons">
+            <input type="button" value="View Canvas" id="viewCanvas" name="viewCanvas">
+            <input type="button" value="View Settings" id="viewSetting" name="viewSetting" hidden="true">
+            <input type="button" value="View Entities" id="viewEntities" name="viewEntities">
+        </div>
+
+    </div>
 
     <!--Scripts-->
+    <script src="scripts/setEventListeners.js"></script>
+    <script src="scripts/Objects/Vector2.js"></script>
+    <script src="scripts/Objects/Entity.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 
