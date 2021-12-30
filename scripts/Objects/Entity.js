@@ -4,6 +4,7 @@ class Entity {
     static entityList = [];
 	static camera = {x: 0, y: 0};
 	static entityCount = 0;
+	static gravConst = 1;
 	
 	static drawAll() {
 		for (var i = 0; i < Entity.entityList.length; i++) {
@@ -62,7 +63,25 @@ class Entity {
     }
     
     update(time) {
-    	console.log('Update not yet made...');
+    	this.x += this.velocity.x;
+    	this.y += this.velocity.y;
+    	
+    	
+    }
+    
+    getDistanceSquareFrom(anotherEntity) {
+    	let dx = Math.pow(this.x - anotherEntity.x, 2);
+    	let dy = Math.pow(this.y - anotherEntity.y, 2);
+    	
+    	return dx + dy;
+    }
+    
+    getDistanceFrom(anotherEntity) {
+    	return Math.sqrt(this.getDistanceSquareFrom(anotherEntity));
+    }
+    
+    getGravitationalForceBetween(anotherEntity) {
+    	let forceMag = Entity.gravConst * this.mass * anotherEntity.mass / this.getDistanceSquareFrom(anotherEntity);
     }
     
     get x() {

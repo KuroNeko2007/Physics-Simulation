@@ -15,7 +15,8 @@ ctx.scale(20, -20);
 
 let timeLastFrame = performance.now();
 
-new Entity(new Vector2(10, 10), new Vector2(0, 0), 2, 10).setThisAsCamera().color = new Color(255, 230, 200);
+let a = new Entity(new Vector2(0, 0), new Vector2(0.25, 0.1), 2, 10);
+a.color = new Color(200, 255, 255);
 
 function mainLoop() {
     let timeSinceLastFrame = performance.now() - timeLastFrame;

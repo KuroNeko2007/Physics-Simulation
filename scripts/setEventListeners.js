@@ -57,5 +57,11 @@
     	if(!isNaN(parseFloat(simSpeed.value))){
     		simulationSpeed = parseFloat(simSpeed.value);
     	}
-    })
+    });
+    
+    gravConst.addEventListener('change', function() {
+    	if(!isNaN(parseFloat(gravConst.value))){
+    		Entity.gravConst = parseFloat(gravConst.value);
+    	}
+    });
 }
