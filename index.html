@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <td><label for="simSpeed">Simulation Speed: </label></td>
-                    <td><input type="number" name="simSpeed" id="simSpeed" value="10"></td>
+                    <td><input type="number" name="simSpeed" id="simSpeed" value="10" step="0.01"></td>
                 </tr>
             </table>
         </div>
@@ -55,9 +55,15 @@
     </div>
 
     <!--Scripts-->
-    <script src="scripts/setEventListeners.js"></script>
+    <!--Object Imports-->
     <script src="scripts/Objects/Vector2.js"></script>
     <script src="scripts/Objects/Entity.js"></script>
+    <script src="scripts/Objects/Color.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!--UI Stuff-->
+    <script src="scripts/setEventListeners.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!--Main-->
     <script src="scripts/main.js"></script>
 </body>
 
