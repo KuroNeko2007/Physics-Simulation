@@ -34,34 +34,50 @@
         settingsDiv.hidden = true;
         entityDiv.hidden = false;
     });
-    
-    zoomIn.addEventListener('click', function(){
-    	ctx.scale(11 / 10, 11 / 10);
+
+    zoomIn.addEventListener('click', function() {
+        ctx.scale(11 / 10, 11 / 10);
     });
-    
+
     zoomOut.addEventListener('click', function() {
-    	ctx.scale(10 / 11, 10 / 11);
+        ctx.scale(10 / 11, 10 / 11);
     });
-    
+
+    largeZoomIn.addEventListener('click', function() {
+        ctx.scale(5 / 2, 5 / 2);
+    });
+
+    largeZoomOut.addEventListener('click', function() {
+        ctx.scale(2 / 5, 2 / 5);
+    });
+
     startButton.addEventListener('click', function() {
-    	if(paused) {
-    		startButton.value = 'Stop';
-    	}else {
-    		startButton.value = 'Start';
-    	}
-    	
-    	paused = !paused;
+        if (paused) {
+            startButton.value = 'Stop';
+        } else {
+            startButton.value = 'Start';
+        }
+
+        paused = !paused;
     });
-    
+
     simSpeed.addEventListener('change', function() {
-    	if(!isNaN(parseFloat(simSpeed.value))){
-    		simulationSpeed = parseFloat(simSpeed.value);
-    	}
+        if (!isNaN(parseFloat(simSpeed.value))) {
+            Entity.simulationSpeed = parseFloat(simSpeed.value);
+        }
     });
-    
+
     gravConst.addEventListener('change', function() {
-    	if(!isNaN(parseFloat(gravConst.value))){
-    		Entity.gravConst = parseFloat(gravConst.value);
-    	}
+        if (!isNaN(parseFloat(gravConst.value))) {
+            Entity.gravConst = parseFloat(gravConst.value);
+        }
     });
+
+    collType.addEventListener('change', function() {
+        if (collType.value === "merge") {
+            Entity.collType = "merge";
+        } else {
+            Entity.collType = "bounce";
+        }
+    })
 }

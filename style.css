@@ -9,11 +9,19 @@ th {
 }
 
 #zoomIn,
-#zoomOut {
+#zoomOut,
+#largeZoomIn,
+#largeZoomOut {
     width: 25px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
+}
+
+#largeZoomIn,
+#largeZoomOut {
+    width: 50px;
+    height: 25px;
 }
 
 #canvas {

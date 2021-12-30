@@ -23,14 +23,25 @@
                     <td><label for="simSpeed">Simulation Speed: </label></td>
                     <td><input type="number" name="simSpeed" id="simSpeed" value="10" step="0.01"></td>
                 </tr>
+                <tr>
+                    <td><label for="collType">Result of Collision</label></td>
+                    <td>
+                        <select name="collType" id="collType">
+                            <option value="bounce">Bounce</option>
+                            <option value="merge">Merge</option>
+                        </select>
+                    </td>
+                </tr>
             </table>
         </div>
 
         <div id="canvasDiv" hidden="true">
             <canvas id="canvas"></canvas> <br>
-            <label for="zoomIn zoomOut">Zoom: </label>
+            <label for="zoomIn zoomOut largeZoomIn largeZoomOut">Zoom: </label>
+            <input type="button" value="++" id="largeZoomIn" name="largeZoomIn">
             <input type="button" value="+" id="zoomIn" name="zoomIn">
-            <input type="button" value="-" id="zoomOut" name="zoomOut"> <br>
+            <input type="button" value="-" id="zoomOut" name="zoomOut">
+            <input type="button" value="--" id="largeZoomOut" name="largeZoomOut"> <br>
 
             <input type="button" value="Start" id="startButton" name="startButton">
         </div>
@@ -59,10 +70,10 @@
     <script src="scripts/Objects/Vector2.js"></script>
     <script src="scripts/Objects/Entity.js"></script>
     <script src="scripts/Objects/Color.js" type="text/javascript" charset="utf-8"></script>
-    
+
     <!--UI Stuff-->
     <script src="scripts/setEventListeners.js" type="text/javascript" charset="utf-8"></script>
-    
+
     <!--Main-->
     <script src="scripts/main.js"></script>
 </body>
