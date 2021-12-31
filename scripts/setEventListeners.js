@@ -23,6 +23,10 @@
         canvasDiv.hidden = true;
         settingsDiv.hidden = false;
         entityDiv.hidden = true;
+
+        if (!paused) {
+            startButton.click();
+        }
     });
 
     viewEntities.addEventListener('click', () => {
@@ -33,6 +37,10 @@
         canvasDiv.hidden = true;
         settingsDiv.hidden = true;
         entityDiv.hidden = false;
+
+        if (!paused) {
+            startButton.click();
+        }
     });
 
     zoomIn.addEventListener('click', function() {

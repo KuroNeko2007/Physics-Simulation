@@ -47,14 +47,46 @@
         </div>
 
         <div id="entityDiv" hidden="true">
-            <div id="entityMakerDiv">
-                <label for="newEntityName">Name for the New Entity:</label>
-                <input type="text" name="newEntityName" id="newEntityName">
-                <input type="button" value="Make">
-            </div>
-            <select name="currentSelectedEntityToView" id="currentSelectedEntityToView">
+            <label for="makeButton">Make a new Entity: </label>
+            <input type="button" value="Make" id="makeButton" name="makeButton"> <br> <br>
 
-            </select>
+            <label for="entitySelector">Select Entity to View: </label>
+            <select name="entitySelector" id="entitySelector"></select> <br>
+
+            <div id="entityViewer" hidden="true">
+                <label for="entityName">Name: </label>
+                <input type="text" name="entityName" id="entityName"> <br> <br>
+
+                <fieldset>
+                    <legend>Position</legend>
+                    <label for="entityX">X: </label>
+                    <input type="text" name="entityX" id="entityX">
+
+                    <label for="entityY">Y: </label>
+                    <input type="text" name="entityY" id="entityY">
+                </fieldset> <br>
+
+                <fieldset>
+                    <legend>Velocity</legend>
+                    <label for="entityVelocityX">X: </label>
+                    <input type="text" name="entityVelocityX" id="entityVelocityX">
+
+                    <label for="entityVelocityY">Y: </label>
+                    <input type="text" name="entityVelocityY" id="entityVelocityY">
+                </fieldset> <br>
+
+                <label for="entityMass">Mass: </label>
+                <input type="text" name="entityMass" id="entityMass"> <br> <br>
+
+                <label for="entityRadius">Radius: </label>
+                <input type="text" name="entityRadius" id="entityRadius"> <br> <br>
+
+                <label for="entityColor">Color: </label>
+                <input type="color" name="entityColor" id="entityColor"> <br> <br>
+
+                <input type="button" value="Update" id="entityUpdate">
+                <input type="button" value="Delete" id="entityDelete">
+            </div>
         </div>
 
         <div id="controlButtons">
@@ -73,6 +105,7 @@
 
     <!--UI Stuff-->
     <script src="scripts/setEventListeners.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/eventUI.js"></script>
 
     <!--Main-->
     <script src="scripts/main.js"></script>

@@ -20,8 +20,7 @@ th {
 
 #largeZoomIn,
 #largeZoomOut {
-    width: 50px;
-    height: 25px;
+    width: 35px;
 }
 
 #canvas {
@@ -32,4 +31,43 @@ th {
 #canvasDiv,
 #entityDiv {
     padding: 20px;
+}
+
+#viewCanvas,
+#viewSetting,
+#viewEntities {
+    padding: 10px;
+    font-size: 22px;
+}
+
+#entityViewer {
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+#entityUpdate {
+    /* Green-Yellow */
+    background-color: #adff2f;
+}
+
+#entityDelete {
+    /* Orange-Red */
+    background-color: #ff4500;
+}
+
+#entityUpdate,
+#entityDelete {
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    /* Bluish-Black */
+    border: 2px solid #102030;
+    transition-duration: 0.5s;
+}
+
+#entityUpdate:hover,
+#entityDelete:hover {
+    /* Bisque */
+    background-color: #ffe4c4;
 }
