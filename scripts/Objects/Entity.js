@@ -2,13 +2,15 @@ class Entity {
 
     /** @type {Entity[]} */
     static entityList = [];
+
+    /** @type {x:number, y:number} */
     static camera = { x: 0, y: 0 };
     static entityCount = 0;
-    static gravConst = 1;
-    static simulationSpeed = 10;
+    static gravConst = isNaN(parseFloat(gravConst.value)) ? 1 : parseFloat(gravConst.value);
+    static simulationSpeed = isNaN(parseFloat(simSpeed.value)) ? 1 : parseFloat(simSpeed.value);
 
     /** @type {"bounce" | "merge"} */
-    static collType = "bounce";
+    static collType = collType.value === "merge" ? "merge" : "bounce";
 
     static drawAll() {
         for (var i = 0; i < Entity.entityList.length; i++) {
@@ -23,6 +25,22 @@ class Entity {
     }
 
     /**
+     * Looks for an entity with the specified id and returns it if found.
+     * Returns null if not found.
+     * @param {string} id 
+     * @returns {Entity | null}
+     */
+    static lookForEntity(id) {
+        for (let i = 0; i < Entity.entityList.length; i++) {
+            if (id === Entity.entityList[i].id) {
+                return Entity.entityList[i];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @constructor
      * @param {Vector2} position
      * @param {Vector2} velocity
@@ -31,12 +49,13 @@ class Entity {
      */
 
     constructor(position, velocity, mass, radius) {
-        Entity.entityList.push(this);
-        Entity.entityCount++;
 
         /** @type {string} */
         this.id = crypto.randomUUID();
+        this.name = `Entity-${Entity.entityCount}`;
 
+        Entity.entityList.push(this);
+        Entity.entityCount++;
 
         this.position = position;
         this.velocity = velocity;
@@ -45,7 +64,7 @@ class Entity {
 
         this.isCamera = false;
 
-        this.color = new Color(0, 0, 0);
+        this.color = new Color(255, 255, 255);
     }
 
     setThisAsCamera() {
@@ -148,8 +167,8 @@ class Entity {
      * @param {Entity} anotherEntity
      */
     handleMerge(anotherEntity) {
-        Entity.entityList.splice(Entity.entityList.indexOf(this), 1);
-        Entity.entityList.splice(Entity.entityList.indexOf(anotherEntity), 1);
+        this.remove();
+        anotherEntity.remove();
 
         let posX = (this.x * this.mass * this.radius) + (anotherEntity.x * anotherEntity.mass * anotherEntity.radius);
         posX /= (this.mass * this.radius) + (anotherEntity.mass * anotherEntity.radius);
@@ -208,6 +227,11 @@ class Entity {
         let forceY = forceMag * Math.sin(forceDir);
 
         return new Vector2(forceX, forceY);
+    }
+
+    remove() {
+        Entity.entityList.splice(Entity.entityList.indexOf(this), 1);
+        EntityHandler.handleRemove(this.id);
     }
 
     get x() {
