@@ -12,12 +12,12 @@ canvas.height = 450;
 ctx.translate(400, 225);
 ctx.scale(40, -40);
 
-(function tests() {
+/*(function tests() {
     console.error('This should not be visible in the main build.');
 
     let a = new Entity(new Vector2(2, 4), new Vector2(-0.1, -0.2), 1, 1);
     a.color = new Color(255, 200, 255);
-})();
+})();*/
 
 let timeLastFrame = performance.now();
 

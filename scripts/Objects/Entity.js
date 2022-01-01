@@ -5,7 +5,7 @@ class Entity {
 
     /** @type {x:number, y:number} */
     static camera = { x: 0, y: 0 };
-    static entityCount = 0;
+    static entityCount = 1;
     static gravConst = isNaN(parseFloat(gravConst.value)) ? 1 : parseFloat(gravConst.value);
     static simulationSpeed = isNaN(parseFloat(simSpeed.value)) ? 1 : parseFloat(simSpeed.value);
 
@@ -50,10 +50,27 @@ class Entity {
 
     constructor(position, velocity, mass, radius) {
 
+        console.log("Making in constructor");
+
         /** @type {string} */
         this.id = crypto.randomUUID();
         this.name = `Entity-${Entity.entityCount}`;
 
+        // Adds it to the list
+        let option = document.createElement('option');
+        option.value = this.id;
+        option.text = this.name;
+        option.id = this.id;
+
+        entitySelector.add(option);
+
+        if (entitySelector.disabled) {
+            entitySelector.disabled = false;
+        }
+
+        console.log(option);
+
+        // Adds it to the entityList
         Entity.entityList.push(this);
         Entity.entityCount++;
 
@@ -65,6 +82,8 @@ class Entity {
         this.isCamera = false;
 
         this.color = new Color(255, 255, 255);
+
+        console.log('Making finished');
     }
 
     setThisAsCamera() {
