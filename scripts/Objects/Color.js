@@ -33,6 +33,25 @@ class Color {
         return value > 16 ? value.toString(16) : `0${value.toString(16)}`;
     }
 
+    static regHex = /^#[0-9A-F]{6}$/i;
+
+    /**
+     * @param {string} string 
+     * @returns boolean
+     */
+    static isValidHex(string) {
+        return this.regHex.test(string);
+    }
+
+    static makeColorFromHex(hex) {
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? new Color(
+            parseInt(result[1], 16),
+            parseInt(result[2], 16),
+            parseInt(result[3], 16)
+        ) : new Color(255, 255, 255);
+    }
+
     toString() {
         return `rgb(${Color.getValue(this.red)}, ${Color.getValue(this.green)}, ${Color.getValue(this.blue)})`;
     }

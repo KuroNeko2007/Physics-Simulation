@@ -46,18 +46,19 @@ th {
     font-size: 15px;
 }
 
-#entityUpdate {
+#entityUpdate,
+#entityDeleteCancel {
     /* Green-Yellow */
     background-color: #adff2f;
 }
 
-#entityDelete {
+#entityDelete,
+#entityConfirmDelete {
     /* Orange-Red */
     background-color: #ff4500;
 }
 
-#entityUpdate,
-#entityDelete {
+.entityControlButton {
     font-size: 20px;
     padding: 10px;
     margin-top: 10px;
@@ -66,8 +67,7 @@ th {
     transition-duration: 0.5s;
 }
 
-#entityUpdate:hover,
-#entityDelete:hover {
+.entityControlButton:hover {
     /* Bisque */
-    background-color: #ffe4c4;
+    background-color: #ffe4c4 !important;
 }

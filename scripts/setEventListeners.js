@@ -41,6 +41,9 @@
         if (!paused) {
             startButton.click();
         }
+        if (entitySelector.options.length > 0) {
+            showEntitySelector();
+        }
     });
 
     zoomIn.addEventListener('click', function() {
